@@ -57,17 +57,19 @@ namespace lab2.Machines
             }
             List<List<string>> newStateChanges = MinimizeStateChanges(minimizedMachine, _stateChanges);
 
-            minimizedMachine = MinimizeStates(previousMinimizedMachine, newStateChanges);
-            while (minimizedMachine.Count != previousMinimizedMachine.Count && _states.Count != minimizedMachine.Count)
+            do
             {
                 previousMinimizedMachine = minimizedMachine;
                 minimizedMachine = MinimizeStates(previousMinimizedMachine, newStateChanges);
                 newStateChanges = MinimizeStateChanges(minimizedMachine, _stateChanges);
-            }
+            } while (minimizedMachine.Count != previousMinimizedMachine.Count && _states.Count != minimizedMachine.Count);
 
-            _states = minimizedMachine.Keys.ToList();
-            _stateChanges = BuildFinalStateChanges(minimizedMachine);
-            _outputSignals = GetNewOutputSignals(minimizedMachine);
+            var tmpStates = minimizedMachine.Keys.ToList();
+            var tmpStateChanges = BuildFinalStateChanges(minimizedMachine);
+            var tmpOutputSignals = GetNewOutputSignals(minimizedMachine);
+            _states = tmpStates;
+            _stateChanges = tmpStateChanges;
+            _outputSignals = tmpOutputSignals;
             PrintToOutput();
         }
 

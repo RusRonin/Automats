@@ -1,5 +1,4 @@
-;w1;w1;w2;w2;w1
-;S0;S1;S2;S3;S4
-z1;S1;S3;S2;S3;S2
-z2;S3;S0;S4;S1;S0
-z3;S2;S1;S3;S3;S1
+;w1;w1;w2;w2;w1;w1
+;a1;a2;a3;a4;a5;a6
+z1;a3;a4;a3;a4;a5;a6
+z2;a5;a6;a5;a6;a1;a2
